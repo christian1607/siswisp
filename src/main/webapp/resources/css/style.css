@@ -1,0 +1,29 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 06/05/2016, 12:15:14 PM
+    Author     : Christian
+*/
+
+body{
+    background:  url("../img/login_background.jpg");
+    background-position: center center;
+    /* La imagen de fondo no se repite */
+    background-repeat: no-repeat;
+    /* La imagen de fondo está fija en el viewport, de modo que no se mueva cuando
+       la altura del contenido supere la altura de la imagen. */
+    background-attachment: fixed;
+
+    /* La imagen de fondo se reescala cuando se cambia el ancho de ventana
+
+       del navegador */
+    background-size: cover;
+
+    /* Fijamos un color de fondo para que se muestre mientras se está
+      cargando la imagen de fondo o si hay problemas para cargarla  */
+    background-color: #464646;
+
+}
