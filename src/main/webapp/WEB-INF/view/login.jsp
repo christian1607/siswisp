@@ -56,40 +56,43 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-7">
-                
+
                     <div class="login-panel panel panel-red">
                         <div class="panel-heading">
                             <h3 class="panel-title text-center">Registrarse</h3>
                         </div>
                         <div class="panel-body">
 
-                            <sp:form role="form" method="POST" modelAttribute="admin"  action="login">
+                            <sp:form method="POST" 
+                                     action="${pageContext.request.contextPath}/login-auth">
                                 <fieldset>
                                     <div class="form-group input-group">
                                         <span class="input-group-addon">
                                             <i class="fa fa-user"></i>
                                         </span> 
-                                        <sp:input class="form-control" path="usuario" placeholder="Usuario" name="usuario" type="text"/>
+                                        <input class="form-control"  placeholder="Usuario" name="usuario" type="text"/>
                                     </div>
                                     <div class="form-group input-group">
                                         <span class="input-group-addon">
                                             <i class="fa fa-key"></i>
                                         </span> 
-                                        <sp:password class="form-control" path="password" placeholder="Password" name="password"/>
+                                        <input type="password" class="form-control" placeholder="Password" name="password"/>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="alert alert-${tipomensaje}">
-                                                <p>${msg}</p>
+                                    <c:if test="${param.error !=null}">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="alert alert-danger">
+                                                    <p>Error al iniciar sesion</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </c:if>
+
                                     <div class="checkbox">
                                         <label>
                                             <input name="remember" type="checkbox" value="Guardar Datos">Recuerdame
                                         </label>
                                     </div>
-                                    <!-- Change this to a button or input when using this as a form -->
                                     <input type="submit" class="btn btn-success btn-lg btn-block" value="Login"/>
                                 </fieldset>
                             </sp:form>
