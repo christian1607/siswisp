@@ -41,8 +41,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .formLogin()
                     .loginPage("/login")
                     .loginProcessingUrl("/login-auth")
-                    .defaultSuccessUrl("/cuentaUsuario/index")
-                    .permitAll();
+                    .defaultSuccessUrl("/navigator/index")
+                    .permitAll()
+                .and()
+                .logout()
+                    .logoutUrl("/logout")
+                    .permitAll()
+                .and()
+                .csrf();
 
     }
 

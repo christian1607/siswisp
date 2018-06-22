@@ -70,7 +70,7 @@
                                         <span class="input-group-addon">
                                             <i class="fa fa-user"></i>
                                         </span> 
-                                        <input class="form-control"  placeholder="Usuario" name="usuario" type="text"/>
+                                        <input class="form-control"  placeholder="Usuario" name="username" type="text"/>
                                     </div>
                                     <div class="form-group input-group">
                                         <span class="input-group-addon">
@@ -82,7 +82,7 @@
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="alert alert-danger">
-                                                    <p>Error al iniciar sesion</p>
+                                                    <p>Usuario o Contrasenia incorrectos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -101,7 +101,6 @@
                 </div>
             </div>
         </div>
-
 
         <%@include file="footer.jsp" %>
 

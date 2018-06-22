@@ -1,3 +1,7 @@
+<%@taglib  prefix="sp" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <div id="wrapper">
 
     <!-- Navigation -->
@@ -166,12 +170,28 @@
                     <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#">
+                            <p class="text-info"> Usuario:  <sec:authentication property="principal.username"/> </p>
+                        </a> 
+
+                    </li>
+                    <li class="divider"></li>
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> Perfil de Usuario</a>
                     </li>
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Ajustes</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="login.html?goLogin"><i class="fa fa-power-off fa-fw"></i> Cerrar Sesión</a>
+                    <li>
+                        <form action="${pageContext.request.contextPath}/logout" method="POST">
+                            <div style="text-align: center">
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fa fa-power-off "></i>
+                                    Cerrar Sesion
+                                </button>
+                                <input type="hidden"  name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                            </div>
+
+                        </form>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
@@ -195,7 +215,7 @@
                         <!-- /input-group -->
                     </li>
                     <li>
-                        <a href="/SISWISP/navigator/goForm"><i class="fa fa-calendar fa-fw"></i> Inicio</a>
+                        <a href="/SISWISP/navigator/index"><i class="fa fa-calendar fa-fw"></i> Inicio</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-users fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
@@ -206,11 +226,11 @@
                             <li>
                                 <a href="/SISWISP/cuentaUsuario/index"><i class="fa fa-ticket fa-fw"></i>Cuentas Usuarios</a>
                             </li>
-                                                     
+
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
-                    
+
                     <li>
                         <a href="/SISWISP/pago/index"><i class="fa fa-dollar fa-fw"></i> Pagos</a>
 
@@ -234,7 +254,7 @@
                             <li>
                                 <a href=http://www.youtube.com"><i class="fa fa-youtube fa-fw"></i>YouTube</a>
                             </li>
-                           
+
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>

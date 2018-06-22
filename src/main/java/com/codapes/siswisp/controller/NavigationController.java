@@ -1,8 +1,7 @@
-package com.celmam.siswisp.controller;
+package com.codapes.siswisp.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/navigator")
@@ -10,13 +9,10 @@ public class NavigationController {
 
    
 
-    @RequestMapping(value = "/goForm")
-    public ModelAndView goForm() {
+    @RequestMapping(value = "/index")
+    public String goForm() {
 
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("form");
-        return mav;
-
+      return "index";
     }
 
    
@@ -24,11 +20,4 @@ public class NavigationController {
 
    
 
-    //Usuario
-
-    
-
-     //Equipo
-   
-
-}
+   }

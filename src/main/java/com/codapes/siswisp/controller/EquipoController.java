@@ -1,4 +1,4 @@
-package com.celmam.siswisp.controller;
+package com.codapes.siswisp.controller ;
 
 import com.codapes.siswisp.entity.Equipo;
 import com.codapes.siswisp.service.EquipoService;
