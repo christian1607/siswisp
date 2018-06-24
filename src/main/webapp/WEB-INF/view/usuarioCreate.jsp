@@ -55,6 +55,16 @@
                     </div>
                     <!-- /.col-lg-6 -->
                 </div>
+                <c:if test="${msg !=null}">
+                     <div class="row">
+                        <div class="col-lg-12">
+                            <div class="alert alert-${tipoMensaje}">
+                                <p>${msg}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </c:if>
                 <div class="row">
                     <div role="form" class="panel panel-green">
                         <div class="panel-heading">
@@ -156,7 +166,7 @@
                                             <label class="">Fecha de Inicio:</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                    <sp:input path="fechaInicio" required="true"  placeholder="Ejem: 16/07/1993" class="form-control "/>
+                                                    <input name="fechaInicio" required="true"  type="date" placeholder="Ejem: 16/07/1993" class="form-control "/>
 
                                             </div>
                                         </div> 

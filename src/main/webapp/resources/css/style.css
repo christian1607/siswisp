@@ -9,6 +9,7 @@ and open the template in the editor.
 */
 
 body{
+    
     background:  url("../img/login_background.jpg");
     background-position: center center;
     /* La imagen de fondo no se repite */

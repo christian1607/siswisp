@@ -3,6 +3,7 @@ package com.codapes.siswisp.controller ;
 import com.codapes.siswisp.entity.Cuentausuario;
 import com.codapes.siswisp.entity.Equipo;
 import com.codapes.siswisp.entity.Usuario;
+import com.codapes.siswisp.exception.BusinessException;
 import com.codapes.siswisp.model.UsuarioModel;
 import com.codapes.siswisp.service.EquipoService;
 import com.codapes.siswisp.service.UsuarioService;
@@ -10,6 +11,7 @@ import java.util.HashMap;
 
 import java.util.List;
 import java.util.Map;
+import org.apache.log4j.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +30,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/usuario")
 public class UsuarioController {
 
+    
+    private static final Logger LOG=Logger.getLogger(UsuarioController.class);
+    
     @Autowired
     private UsuarioService usuarioService;
     @Autowired
@@ -50,13 +55,14 @@ public class UsuarioController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public ModelAndView createUsuario(@ModelAttribute UsuarioModel usuarioModel, BindingResult bindingResult) {
 
+       
         ModelAndView mav = new ModelAndView();
         Usuario usuario = new Usuario();
         Cuentausuario cuentausuario = new Cuentausuario();
         try {
 
             if (bindingResult.hasErrors()) {
-                mav.addObject("msg", "Error al registrar: ");
+                mav.addObject("msg", "Error al registrar: " +bindingResult.getGlobalError().getDefaultMessage());
                 mav.addObject("tipoMensaje", "danger");
                 mav.setViewName("usuarioCreate");
             } else {
@@ -88,8 +94,8 @@ public class UsuarioController {
                 mav.setViewName("usuario");
             }
 
-        } catch (Exception e) {
-            mav.addObject("msg", "Error al registrar: " + e.getMessage());
+        } catch (BusinessException e) {
+            mav.addObject("msg", e.getDescripcion());
             mav.addObject("tipoMensaje", "danger");
             mav.setViewName("usuarioCreate");
         }

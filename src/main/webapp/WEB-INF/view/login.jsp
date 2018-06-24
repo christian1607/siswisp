@@ -88,6 +88,16 @@
                                         </div>
                                     </c:if>
 
+                                     <c:if test="${param.logout !=null}">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="alert alert-success">
+                                                    <p>Desconectado, registrese para volver a ingresar.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </c:if>
+                                    
                                     <div class="checkbox">
                                         <label>
                                             <input name="remember" type="checkbox" value="Guardar Datos">Recuerdame

@@ -231,11 +231,14 @@
                         <!-- /.nav-second-level -->
                     </li>
 
-                    <li>
-                        <a href="/SISWISP/pago/index"><i class="fa fa-dollar fa-fw"></i> Pagos</a>
+                    <sec:authorize access="hasRole('ADMIN')">
+                        <li>
+                            <a href="/SISWISP/pago/index"><i class="fa fa-dollar fa-fw"></i> Pagos</a>
 
-                        <!-- /.nav-second-level -->
-                    </li>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </sec:authorize>
+
                     <li>
                         <a href="/SISWISP/equipo/index"><i class="fa fa-briefcase"></i> Equipos</a>
                     </li>

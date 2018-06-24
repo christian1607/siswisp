@@ -5,8 +5,10 @@ import com.codapes.siswisp.dao.UsuarioDao;
 import com.codapes.siswisp.entity.Cuentausuario;
 import com.codapes.siswisp.entity.Equipo;
 import com.codapes.siswisp.entity.Usuario;
+import com.codapes.siswisp.exception.BusinessException;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -22,12 +24,14 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class UsuarioDaoImpl  implements UsuarioDao{
 
+    private static final Logger LOG=Logger.getLogger(UsuarioDaoImpl.class);
+    
     @Autowired
     private SessionFactory sessionFactory;
     
     
     @Override
-    public void create(Usuario usuario,Cuentausuario cuentausuario,Equipo equipo) {
+    public void create(Usuario usuario,Cuentausuario cuentausuario,Equipo equipo)  throws BusinessException{
         Session session = sessionFactory.openSession();
         Transaction tx=session.getTransaction();
         
@@ -41,8 +45,9 @@ public class UsuarioDaoImpl  implements UsuarioDao{
             tx.commit();
            
         } catch (HibernateException e) {
+            LOG.error("ERROR", e);
             tx.rollback();
-            System.out.println("ERRO BD:  "+e.getMessage());
+            throw new BusinessException("GRAVE","Se produjo un error al guardar datos");
         }
         finally{
             session.close();

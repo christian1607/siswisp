@@ -6,6 +6,7 @@ import com.codapes.siswisp.dao.impl.EntityDaoImpl;
 import com.codapes.siswisp.entity.Cuentausuario;
 import com.codapes.siswisp.entity.Equipo;
 import com.codapes.siswisp.entity.Usuario;
+import com.codapes.siswisp.exception.BusinessException;
 import com.codapes.siswisp.service.UsuarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +25,13 @@ public class UsuarioServiceImpl extends EntityDaoImpl<Usuario> implements Usuari
   
     
     @Override
-    public void create(Usuario usuario,Cuentausuario cuentausuario,Equipo equipo) {
+    public void create(Usuario usuario,Cuentausuario cuentausuario,Equipo equipo) throws BusinessException{
         try {
             usuarioDao.create(usuario, cuentausuario, equipo);
            
-        } catch (Exception e) {
-            System.out.println("ERROR SERVICES");
+        } catch (BusinessException e) {
+           
+            throw new BusinessException(e.getTipoError(), e.getDescripcion());
             
         }
  

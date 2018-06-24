@@ -2,6 +2,8 @@
 package com.codapes.siswisp.model;
 
 import java.util.Date;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
@@ -24,7 +26,9 @@ public class UsuarioModel {
     private String password;
     private String velocidad;
     private long pagoMensual;
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date fechaInicio;
 
     public String getNombreUsuario() {
