@@ -1,7 +1,7 @@
 
 package com.codapes.siswisp.dao;
 
-import com.codapes.siswisp.entity.Admin;
+import com.codapes.siswisp.entity.Users;
 
 
 
@@ -11,5 +11,5 @@ import com.codapes.siswisp.entity.Admin;
  */
 public interface LoginDao {
     
-    public Admin login(Admin admin);
+    public Users login(String username);
 }

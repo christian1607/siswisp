@@ -16,11 +16,7 @@ public class LoginController {
      
     @RequestMapping()
     public String goLogin() {
-
-        LOG.info("Go login page");
-      
         return "login";
-
     }
     
     

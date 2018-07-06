@@ -128,6 +128,19 @@
             <version>${flyway.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 
@@ -191,6 +204,7 @@
                     <user>${database.user}</user>
                     <password>${databese.password}</password>
                     <schemas> security</schemas>
+                    <baselineOnMigrate>true</baselineOnMigrate>
                     <!--<schemas> siswisp</schemas>-->
                 </configuration>
              
