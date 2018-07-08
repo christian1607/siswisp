@@ -34,23 +34,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     LoginServiceImpl loginServiceImpl;
-//    
-//    @Autowired
-//    PasswordEncoder passwordEncoder;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-        auth.userDetailsService(loginServiceImpl);
+        auth.userDetailsService(loginServiceImpl)
+            .passwordEncoder(encoder());
                 
-
-//        auth.jdbcAuthentication()
-                //                .dataSource(dataSource)
-                //                .usersByUsernameQuery("select username,password, enabled from security.users where username=?")
-                //                .authoritiesByUsernameQuery("select username, authority from authorities  where username=?");
-                //        auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ADMIN", "USER");
-                //        auth.inMemoryAuthentication().withUser("edgar").password("edgar").roles("USER");
-                //        auth.inMemoryAuthentication().withUser("luis").password("luis").roles("ADMIN");
     }
 
     @Override
@@ -79,14 +69,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     }
 
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.debug(true);
-    }
 
-//    @Bean
-//    public PasswordEncoder encoder() {
-//        return new BCryptPasswordEncoder(10);
-//    }
+
+    @Bean
+    public PasswordEncoder encoder() {
+        return new BCryptPasswordEncoder(10);
+    }
 
 }
