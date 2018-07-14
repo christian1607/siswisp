@@ -8,7 +8,7 @@
 <spring:url value="/resources/bower_components/metisMenu/dist/metisMenu.min.js" var="metisjs"/> 
 <spring:url value="/resources/js/sb-admin-2.js" var="adminjs"/> 
 <spring:url value="/resources/js/app.js" var="app"/> 
-      
+<spring:url value="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js" var="validator"/>       
                    
    
 
@@ -23,4 +23,5 @@
 <!-- Custom Theme JavaScript -->
 
 <script src="${adminjs}"></script>
+<script src="${validator}"></script>
 <script src="${app}" ></script>      

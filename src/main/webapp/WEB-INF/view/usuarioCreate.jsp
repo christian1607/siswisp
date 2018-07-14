@@ -56,7 +56,7 @@
                     <!-- /.col-lg-6 -->
                 </div>
                 <c:if test="${msg !=null}">
-                     <div class="row">
+                    <div class="row">
                         <div class="col-lg-12">
                             <div class="alert alert-${tipoMensaje}">
                                 <p>${msg}</p>
@@ -70,7 +70,7 @@
                         <div class="panel-heading">
                             <label>FORMULARIO: REGISTRAR USUARIO</label>
                         </div>
-                        <sp:form  role="form" modelAttribute="usuarioModel" action="/SISWISP/usuario/create" >
+                        <sp:form  id="fromCreateUser" role="form" modelAttribute="usuarioModel" action="/SISWISP/usuario/create" >
                             <div class="panel-body">  
                                 <div class="row">
                                     <div class="col-lg-6">
@@ -79,7 +79,7 @@
                                             <label class="">Nombres</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><b>N</b></span>
-                                                <sp:input path="nombreUsuario" type="text" class="form-control " required="true"  placeholder="Ingrese el  nombre" /> 
+                                                <sp:input path="nombreUsuario" type="text" class="form-control " required="true"   placeholder="Ingrese el  nombre" /> 
                                             </div>
                                         </div>      
                                         <div class="form-group">
@@ -93,7 +93,11 @@
                                             <label class="">Celular</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                                    <sp:input path="telefono" type="tel" class="form-control " required="true" placeholder="Ejm: 981973093" /> 
+                                                    <sp:input path="telefono" 
+                                                              id="txtCelular"
+                                                              class="form-control "
+                                                              required="true"
+                                                              placeholder="Ejm: 981973093" /> 
                                             </div>
                                         </div>  
                                         <div class="form-group">
@@ -111,8 +115,8 @@
                                                     <sp:select path="equipo" class="form-control">
                                                         <c:forEach var="item" items="${listaEquipo}">
                                                             <sp:option value="${item.id}">${item.nombre} - ${item.ip}</sp:option>
-                                                        </c:forEach>
-                                                     </sp:select>
+                                                    </c:forEach>
+                                                </sp:select>
                                             </div>
                                         </div>   
 
@@ -133,13 +137,13 @@
                                                     <sp:input id="txtPassword1"  path="password" type="password" class="form-control " required="true" placeholder="Ingrese su contraseña" /> 
                                             </div>
                                         </div> 
-                                        <div class="form-group">
+                                        <div class="form-group" id="resultadoContrasenia">
                                             <label class="">Confirmar contraseña</label>
-                                            <div class="input-group">
+                                            <div class="input-group" >
                                                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
                                                 <input id="txtPassword2"  type="password" class="form-control " required="true" placeholder="Ingrese su contraseña nuevamente" /> 
                                             </div>
-                              
+
                                         </div> 
                                         <div class="form-group">
                                             <label class="">Velocidad:</label>
@@ -155,22 +159,26 @@
                                                 </sp:select>
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" id="resultadoPago">
                                             <label class="">Pago Mensual:</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                                                    <sp:input path="pagoMensual" required="true" type="number" class="form-control "/> 
+                                                    <sp:input path="pagoMensual" 
+                                                              required="true"
+                                                              type="number"
+                                                              class="form-control"
+                                                              id="txtPagoMensual"/> 
                                             </div>
                                         </div> 
                                         <div class="form-group">
                                             <label class="">Fecha de Inicio:</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                    <input name="fechaInicio" required="true"  type="date" placeholder="Ejem: 16/07/1993" class="form-control "/>
+                                                <input name="fechaInicio" required="true"  type="date" placeholder="Ejem: 16/07/1993" class="form-control "/>
 
                                             </div>
                                         </div> 
-                                     </div>
+                                    </div>
 
                                 </div>
                                 <div class="row">
@@ -187,19 +195,19 @@
                                 </div>
 
                             </sp:form> 
+
                         </div>
                     </div>
+
+
+                    <!-- /.row -->
+
+                    <!-- /.container-fluid -->
                 </div>
+                <!-- /#page-wrapper -->
+                <%@include  file="footer.jsp" %>   
 
+                </body>
 
-                <!-- /.row -->
-
-                <!-- /.container-fluid -->
-            </div>
-            <!-- /#page-wrapper -->
-            <%@include  file="footer.jsp" %>   
-
-    </body>
-
-</html>
+                </html>
 
