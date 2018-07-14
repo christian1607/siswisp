@@ -45,7 +45,7 @@
 
     </head>
 
-    <body>
+    <body id="bg_login">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
@@ -63,8 +63,7 @@
                         </div>
                         <div class="panel-body">
 
-                            <sp:form method="POST" 
-                                     action="${pageContext.request.contextPath}/login-auth">
+                            <sp:form method="POST" action="${pageContext.request.contextPath}/login-auth">
                                 <fieldset>
                                     <div class="form-group input-group">
                                         <span class="input-group-addon">
@@ -88,7 +87,7 @@
                                         </div>
                                     </c:if>
 
-                                     <c:if test="${param.logout !=null}">
+                                    <c:if test="${param.logout !=null}">
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="alert alert-success">
@@ -97,7 +96,7 @@
                                             </div>
                                         </div>
                                     </c:if>
-                                    
+
                                     <div class="checkbox">
                                         <label>
                                             <input name="remember" type="checkbox" value="Guardar Datos">Recuerdame

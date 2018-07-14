@@ -24,14 +24,17 @@
         <spring:url value="/resources/bower_components/bootstrap/dist/css/bootstrap.min.css" var="bowerComponent"/> 
         <spring:url value="/resources/bower_components/metisMenu/dist/metisMenu.min.css" var="metisMenu"/> 
         <spring:url value="/resources/css/sb-admin-2.css" var="adminsb"/> 
+        <spring:url value="/resources/css/style.css" var="style"/> 
         <spring:url value="/resources/bower_components/font-awesome/css/font-awesome.min.css" var="font"/> 
-        
-        
+        <spring:url value="/resources/img/background_index.jpg" var="bg_image"/> 
+
+
         <!-- Bootstrap Core CSS -->
         <link href="${bowerComponent}" rel="stylesheet">
 
         <!-- MetisMenu CSS -->
         <link href="${metisMenu}" rel="stylesheet">
+        <link href="${style}" rel="stylesheet">
 
         <!-- Custom CSS -->
         <link href="${adminsb}" rel="stylesheet">
@@ -43,6 +46,15 @@
 
     <body>
         <%@include file="header.jsp" %>
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <img src="${bg_image}" id="bg_index"/>
+                    </div>
+                </div>
+            </div>
+        </div>
         <%@include  file="footer.jsp" %>    
     </body>
 

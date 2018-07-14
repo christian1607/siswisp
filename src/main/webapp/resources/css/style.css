@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : Christian
 */
 
-body{
+#bg_login{
     
     background:  url("../img/login_background.jpg");
     background-position: center center;
@@ -27,4 +27,9 @@ body{
       cargando la imagen de fondo o si hay problemas para cargarla  */
     background-color: #464646;
 
+}
+
+#bg_index{
+    width: 100%;
+    margin-top: 10px;
 }

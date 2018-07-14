@@ -18,6 +18,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 
 /**
  *
@@ -39,13 +40,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
         auth.userDetailsService(loginServiceImpl)
-            .passwordEncoder(encoder());
-                
+                .passwordEncoder(encoder());
+
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
+        SavedRequestAwareAuthenticationSuccessHandler successHandler = new SavedRequestAwareAuthenticationSuccessHandler();
+        successHandler.setTargetUrlParameter("/navigator/index");
         http.authorizeRequests()
                 .antMatchers("/resources/**")
                 .permitAll()
@@ -55,7 +58,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/login-auth")
-                .defaultSuccessUrl("/navigator/index")
+                .successHandler(successHandler)
                 .permitAll()
                 .and()
                 .logout()
@@ -68,8 +71,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .accessDeniedPage("/403");
 
     }
-
-
 
     @Bean
     public PasswordEncoder encoder() {

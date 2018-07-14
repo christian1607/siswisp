@@ -95,19 +95,19 @@
                                             </thead>
 
                                             <tbody>
-                                            <c:forEach items="${lista}" var="item">
-                                                <tr class="odd gradeX ">
+                                                <c:forEach items="${lista}" var="item">
+                                                    <tr class="odd gradeX ">
 
-                                                    <td>${item.usuario.nombre} ${item.usuario.apellido}</td>
-                                                    <td>${item.monto}</td>
-                                                    <td>${item.fecha}</td>
-                                                    <td>${item.conceptoPago}</td>
+                                                        <td>${item.usuario.nombre} ${item.usuario.apellido}</td>
+                                                        <td>${item.monto}</td>
+                                                        <td>${item.fecha}</td>
+                                                        <td>${item.conceptoPago}</td>
 
-                                                    <td class="center"><a href="/SISWISP/pago/update/${item.id}"><span class="glyphicon glyphicon-refresh"></a></span>
-                                                        <a href="/SISWISP/pago/delete/${item.id}"> <span class="glyphicon glyphicon-trash"></span></a></td>
-                                                </tr>   
+                                                        <td class="center"><a href="/SISWISP/pago/update/${item.id}"><span class="glyphicon glyphicon-refresh"></a></span>
+                                                            <a href="/SISWISP/pago/delete/${item.id}"> <span class="glyphicon glyphicon-trash"></span></a></td>
+                                                    </tr>   
 
-                                            </c:forEach> 
+                                                </c:forEach> 
 
                                             </tbody>
                                         </table>
@@ -121,8 +121,11 @@
                 </div>
                 <!-- /.container-fluid -->
             </div>
-            <!-- /#page-wrapper -->
-            <%@include  file="footer.jsp" %>    
+        </div>
+        <!-- /#page-wrapper -->
+        <%@include  file="footer.jsp" %>    
+
+
     </body>
 
 </html>

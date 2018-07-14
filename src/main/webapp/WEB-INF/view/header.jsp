@@ -172,9 +172,12 @@
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#">
                             <p class="text-info"> Usuario:  <sec:authentication property="principal.username"/> </p>
+
                         </a> 
 
                     </li>
+
+
                     <li class="divider"></li>
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> Perfil de Usuario</a>
                     </li>
@@ -230,8 +233,9 @@
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
+                    
 
-                    <sec:authorize access="hasRole('ADMIN')">
+                    <sec:authorize  access="hasAuthority('ADMIN')">
                         <li>
                             <a href="/SISWISP/pago/index"><i class="fa fa-dollar fa-fw"></i> Pagos</a>
 

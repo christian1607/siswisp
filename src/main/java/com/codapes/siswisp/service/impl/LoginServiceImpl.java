@@ -27,6 +27,10 @@ public class LoginServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Users userInfo = userDAO.login(username);
+        
+        if(null==userInfo){
+            throw new UsernameNotFoundException("Usuario ingresado no valido.");
+        }
         GrantedAuthority authority = new SimpleGrantedAuthority(userInfo.getRoles().get(0).getRole());
        
         UserDetails userDetails = (UserDetails) new User(userInfo.getUsername(),
