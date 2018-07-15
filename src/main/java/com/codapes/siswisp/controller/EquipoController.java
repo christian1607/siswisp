@@ -65,7 +65,7 @@ public class EquipoController {
         return mav;
     }
 
-    @RequestMapping(value = "/upate/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
     public ModelAndView goEquipoUpdate(@PathVariable("id") int id) {
 
         ModelAndView mav = new ModelAndView();

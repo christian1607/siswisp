@@ -10,6 +10,7 @@ import java.util.Date;
 public class PagoModel {
 
 
+    private int id;
     private Integer usuario;
     private Date fecha;
     private double monto;
@@ -45,6 +46,14 @@ public class PagoModel {
 
     public void setConceptoPago(String conceptoPago) {
         this.conceptoPago = conceptoPago;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     

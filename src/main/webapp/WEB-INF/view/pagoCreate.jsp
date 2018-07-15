@@ -70,10 +70,14 @@
                     <div class="panel-heading">
                         <label>FORMULARIO: REGISTRAR PAGO</label>
                     </div>
-                    <sp:form  role="form" modelAttribute="pago" action="create" >
+                    <sp:form  role="form" modelAttribute="pago" action="${pageContext.servletContext.contextPath}/pago/create" >
                         <div class="panel-body">  
                               <div class="row">
                                     <div class="col-lg-6">
+                                        <div>
+                                              <sp:input path="id" type="hidden" class="form-control" /> 
+                                        
+                                        </div>
                                         <div class="form-group">
                                             <label class="">Usuario:</label>
                                             <div class="input-group">
@@ -107,12 +111,12 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-3 col-xs-offset-3 col-lg-offset-3">
-                                    <button type="submit" class="btn btn-circle btn-lg btn-info">
+                                    <button type="submit" title="Guardar datos de pago" class="btn btn-circle btn-lg btn-info">
                                         <i class="fa fa-check"></i>
                                     </button>
                                 </div>
                                 <div class="col-xs-3 ">
-                                    <button type="reset" class="btn btn-circle btn-lg btn-danger">
+                                    <button type="reset" title="Descartar datos registrados" class="btn btn-circle btn-lg btn-danger">
                                         <i class="fa fa-close"></i>
                                     </button>
                                 </div>

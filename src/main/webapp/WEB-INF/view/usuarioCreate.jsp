@@ -70,7 +70,7 @@
                         <div class="panel-heading">
                             <label>FORMULARIO: REGISTRAR USUARIO</label>
                         </div>
-                        <sp:form  id="fromCreateUser" role="form" modelAttribute="usuarioModel" action="/SISWISP/usuario/create" >
+                        <sp:form  id="formCreateUser" role="form" modelAttribute="usuarioModel" action="/SISWISP/usuario/create" >
                             <div class="panel-body">  
                                 <div class="row">
                                     <div class="col-lg-6">
@@ -95,6 +95,7 @@
                                                 <span class="input-group-addon"><i class="fa fa-phone"></i></span>
                                                     <sp:input path="telefono" 
                                                               id="txtCelular"
+                                                              name="txtCelular"
                                                               class="form-control "
                                                               required="true"
                                                               placeholder="Ejm: 981973093" /> 
@@ -151,11 +152,11 @@
                                                 <span class="input-group-addon"><i class="fa fa-signal"></i></span>
                                                     <sp:select path="velocidad" required="true"   class="form-control">
                                                         <sp:option value="">--Seleccione--</sp:option>
-                                                        <sp:option value="1 MB">1 MB</sp:option>
-                                                        <sp:option value="2 MB">2 MB</sp:option>
-                                                        <sp:option value="3 MB">3 MB</sp:option>
-                                                        <sp:option value="4 MB">4 MB</sp:option>
-                                                        <sp:option value="5 MB">5 MB</sp:option>
+                                                    <sp:option value="1 MB">1 MB</sp:option>
+                                                    <sp:option value="2 MB">2 MB</sp:option>
+                                                    <sp:option value="3 MB">3 MB</sp:option>
+                                                    <sp:option value="4 MB">4 MB</sp:option>
+                                                    <sp:option value="5 MB">5 MB</sp:option>
                                                 </sp:select>
                                             </div>
                                         </div>
