@@ -104,7 +104,7 @@ public class EquipoController {
         List<Equipo> lista = equipoService.list();
         mav.addObject("lista", lista);
         mav.setViewName("equipo");
-        mav.addObject("msg", "Se eliminó satisfactoriamente el equipo seleccionado.");
+        mav.addObject("msg", "Se eliminó satisfactoriamente equipo seleccionado.");
         mav.addObject("tipoMensaje", "success");
 
         return mav;
